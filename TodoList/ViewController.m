@@ -17,7 +17,7 @@
 @implementation ViewController
 
 NSMutableArray *taskList;
-NSMutableArray *dictList;
+//NSMutableArray *dictList;
 
 NSUserDefaults *settings;
 
@@ -29,9 +29,13 @@ NSUserDefaults *settings;
     
     settings = [NSUserDefaults standardUserDefaults];
     
-    if ([settings objectForKey:@"tasks"] != nil) {
+    NSMutableArray *dictList = [settings objectForKey:@"tasks"];
+    
+    NSLog(@"dictList exists: %@ and count is: %i", dictList, (unsigned int)dictList.count);
+    
+    if (dictList != nil && dictList.count != 0) {
         
-        [TaskHandler setDictList:[settings objectForKey:@"tasks"]];
+        [TaskHandler setDictList:dictList];
         
         taskList = [TaskHandler getTaskList];
     } else {
@@ -39,7 +43,7 @@ NSUserDefaults *settings;
         taskList = [TaskHandler getTaskList];
     }
     
-    [TaskHandler addTask:@"sopa golvet" completionDate:@"22/1/20"];
+    // [TaskHandler addTask:@"sopa golvet" completionDate:@"22/1/20"];
     
 }
 
@@ -50,9 +54,19 @@ NSUserDefaults *settings;
 
 - (IBAction)addButton:(id)sender {
     
+    [TaskHandler addTask:@"sopa golvet" completionDate:@"22/1/20"];
+    
+    [self.tableView reloadData];
 }
 
 - (IBAction)removeButton:(id)sender {
+    
+    if(self.tableView.indexPathForSelectedRow != nil) {
+        
+        [TaskHandler removeTaskAtIndex:(unsigned int)self.tableView.indexPathForSelectedRow.row];
+        
+        [self.tableView reloadData];
+    }
 }
 
 - (IBAction)editButton:(id)sender {
@@ -60,7 +74,11 @@ NSUserDefaults *settings;
 
 - (void)viewWillDisappear:(BOOL)animated {
     
+    NSMutableArray *dictList = [TaskHandler convertToDictArray:taskList];
     
+    [settings setObject:dictList forKey:@"tasks"];
+    
+    [settings synchronize];
 }
 
 #pragma mark - Table view data source

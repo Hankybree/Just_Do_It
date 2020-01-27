@@ -16,14 +16,14 @@ static NSMutableArray *dictList;
 
 + (void)addTask:(NSString*)name completionDate:(NSString*)date {
     
-    if(taskList == nil) {
-        
-        taskList = [[NSMutableArray alloc] init];
-    }
-    
     Task *task = [[Task alloc] initWithName:name andDate:date];
     
     [taskList addObject:task];
+}
+
++ (void)removeTaskAtIndex:(NSInteger)index {
+    
+    [taskList removeObjectAtIndex:(unsigned int)index];
 }
 
 + (NSMutableArray*)convertToDictArray:(NSMutableArray*)taskList {
@@ -66,9 +66,9 @@ static NSMutableArray *dictList;
     return taskList;
 }
 
-+ (void)setDictList:(NSMutableArray*)dictList {
++ (void)setDictList:(NSMutableArray*)dict {
     
-    self.dictList = dictList;
+    dictList = dict;
 }
 
 @end
