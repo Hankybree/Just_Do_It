@@ -55,16 +55,25 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="86" height="22"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <state key="normal" image="plus" catalog="system"/>
+                                                <connections>
+                                                    <action selector="addButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RH6-ge-Bga"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tcl-gg-GHb">
                                                 <rect key="frame" x="144" y="0.0" width="86" height="22"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <state key="normal" image="trash" catalog="system"/>
+                                                <connections>
+                                                    <action selector="removeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qt7-ts-14B"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2c-MB-dIq">
                                                 <rect key="frame" x="288" y="0.0" width="86" height="22"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <state key="normal" image="doc" catalog="system"/>
+                                                <connections>
+                                                    <action selector="editButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g7U-rg-FU7"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

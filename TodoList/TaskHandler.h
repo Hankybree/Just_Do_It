@@ -16,7 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSMutableArray *dictList;
 
 + (void)addTask:(NSString*)name completionDate:(NSString*)date;
++ (NSMutableArray*)convertToDictArray:(NSMutableArray*)taskList;
++ (NSMutableArray*)convertToTaskArray:(NSMutableArray*)dictList;
 + (NSMutableArray*)getTaskList;
++ (void)setDictList:(NSMutableArray*)dictList;
 
 @end
 

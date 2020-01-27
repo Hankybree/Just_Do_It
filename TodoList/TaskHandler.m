@@ -12,6 +12,7 @@
 @implementation TaskHandler
 
 static NSMutableArray *taskList;
+static NSMutableArray *dictList;
 
 + (void)addTask:(NSString*)name completionDate:(NSString*)date {
     
@@ -25,9 +26,49 @@ static NSMutableArray *taskList;
     [taskList addObject:task];
 }
 
-+ (NSMutableArray*)getTaskList {
++ (NSMutableArray*)convertToDictArray:(NSMutableArray*)taskList {
+    
+    NSMutableArray *dictList = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < taskList.count; i++) {
+        
+        [dictList addObject:[taskList[i] toDict]];
+    }
+    
+    return dictList;
+}
+
++ (NSMutableArray*)convertToTaskArray:(NSMutableArray *)dictList {
+    
+    NSMutableArray *taskList = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < dictList.count; i++) {
+        
+        Task *task = [[Task alloc] initWithDict:dictList[i]];
+        
+        [taskList addObject:task];
+    }
     
     return taskList;
+}
+
++ (NSMutableArray*)getTaskList {
+    
+    if(taskList == nil && dictList == nil) {
+        
+        taskList = [[NSMutableArray alloc] init];
+        
+    } else if(taskList == nil) {
+        
+        taskList = [self convertToTaskArray:dictList];
+    }
+    
+    return taskList;
+}
+
++ (void)setDictList:(NSMutableArray*)dictList {
+    
+    self.dictList = dictList;
 }
 
 @end

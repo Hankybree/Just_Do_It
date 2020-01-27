@@ -12,5 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+- (IBAction)addButton:(id)sender;
+- (IBAction)removeButton:(id)sender;
+- (IBAction)editButton:(id)sender;
+
 @end
 

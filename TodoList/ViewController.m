@@ -17,6 +17,9 @@
 @implementation ViewController
 
 NSMutableArray *taskList;
+NSMutableArray *dictList;
+
+NSUserDefaults *settings;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,9 +27,39 @@ NSMutableArray *taskList;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    settings = [NSUserDefaults standardUserDefaults];
+    
+    if ([settings objectForKey:@"tasks"] != nil) {
+        
+        [TaskHandler setDictList:[settings objectForKey:@"tasks"]];
+        
+        taskList = [TaskHandler getTaskList];
+    } else {
+        
+        taskList = [TaskHandler getTaskList];
+    }
+    
     [TaskHandler addTask:@"sopa golvet" completionDate:@"22/1/20"];
     
-    taskList = [TaskHandler getTaskList];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    
+    return UIStatusBarStyleLightContent;
+}
+
+- (IBAction)addButton:(id)sender {
+    
+}
+
+- (IBAction)removeButton:(id)sender {
+}
+
+- (IBAction)editButton:(id)sender {
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
     
 }
 
@@ -42,7 +75,6 @@ NSMutableArray *taskList;
     return taskList.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
@@ -50,15 +82,14 @@ NSMutableArray *taskList;
     
     Task *task = taskList[indexPath.row];
     
+    // NSDictionary *dict = dictList[indexPath.row];
+    
     cell.textLabel.text = task.name;
     cell.detailTextLabel.text = task.date;
     
+    // cell.textLabel.text = dict[@"name"];
+    // cell.detailTextLabel.text = dict[@"date"];
+    
     return cell;
 }
-
-- (void)viewWillDisappear:(BOOL)animated {
-    
-    
-}
-
 @end
