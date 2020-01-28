@@ -14,7 +14,7 @@
 
 - (IBAction)addButton:(id)sender;
 - (IBAction)removeButton:(id)sender;
-- (IBAction)editButton:(id)sender;
+- (IBAction)markCompleteButton:(id)sender;
 
 @end
 

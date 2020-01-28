@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *date;
+@property (nonatomic) int completed;
 
 - (instancetype)initWithName:(NSString*)name andDate:(NSString*)date;
 - (instancetype)initWithDict:(NSDictionary*)dict;

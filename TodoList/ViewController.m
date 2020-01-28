@@ -31,9 +31,7 @@ NSUserDefaults *settings;
     
     NSMutableArray *dictList = [settings objectForKey:@"tasks"];
     
-    NSLog(@"dictList exists: %@ and count is: %i", dictList, (unsigned int)dictList.count);
-    
-    if (dictList != nil && dictList.count != 0) {
+    if (dictList != nil) {
         
         [TaskHandler setDictList:dictList];
         
@@ -42,9 +40,6 @@ NSUserDefaults *settings;
         
         taskList = [TaskHandler getTaskList];
     }
-    
-    // [TaskHandler addTask:@"sopa golvet" completionDate:@"22/1/20"];
-    
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -69,7 +64,23 @@ NSUserDefaults *settings;
     }
 }
 
-- (IBAction)editButton:(id)sender {
+- (IBAction)markCompleteButton:(id)sender {
+    
+    if(self.tableView.indexPathForSelectedRow != nil) {
+        
+        Task *task = [TaskHandler getTaskList][self.tableView.indexPathForSelectedRow.row];
+        
+        if(task.completed == 0) {
+            
+            task.completed = 1;
+            
+        } else {
+            
+            task.completed = 0;
+        }
+        
+        [self.tableView reloadData];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -96,17 +107,19 @@ NSUserDefaults *settings;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    // Här skickas data in i cellen.
-    
     Task *task = taskList[indexPath.row];
-    
-    // NSDictionary *dict = dictList[indexPath.row];
     
     cell.textLabel.text = task.name;
     cell.detailTextLabel.text = task.date;
     
-    // cell.textLabel.text = dict[@"name"];
-    // cell.detailTextLabel.text = dict[@"date"];
+    if(task.completed == 1) {
+        
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        
+    } else {
+        
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     return cell;
 }
