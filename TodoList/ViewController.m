@@ -49,9 +49,30 @@ NSUserDefaults *settings;
 
 - (IBAction)addButton:(id)sender {
     
-    [TaskHandler addTask:@"sopa golvet" completionDate:@"22/1/20"];
+    UIAlertController *taskInput = [UIAlertController alertControllerWithTitle:@"Add task" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
-    [self.tableView reloadData];
+    [taskInput addTextFieldWithConfigurationHandler:^(UITextField *taskField) {
+        
+        taskField.placeholder = @"Task";
+        taskField.borderStyle = UITextBorderStyleRoundedRect;
+    }];
+    
+    [taskInput addTextFieldWithConfigurationHandler:^(UITextField *dateField) {
+       
+        dateField.placeholder = @"Due date";
+        dateField.borderStyle = UITextBorderStyleRoundedRect;
+    }];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault
+    handler:^(UIAlertAction * action) {
+        
+        [TaskHandler addTask:taskInput.textFields[0].text completionDate:taskInput.textFields[1].text];
+        
+        [self.tableView reloadData];
+    }];
+    
+    [taskInput addAction:defaultAction];
+    [self presentViewController:taskInput animated:YES completion:nil];
 }
 
 - (IBAction)removeButton:(id)sender {
