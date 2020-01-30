@@ -1,0 +1,5 @@
+Privacy policy for Tasktastic
+
+This app will only handle personal information that you input in it. It will only be stored locally on your device.
+
+If you have any question e-mail me at frank.havsvinge@gmail.com

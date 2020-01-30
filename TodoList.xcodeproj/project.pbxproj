@@ -38,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EFCBF31B23D721CC0087D786 /* Taskmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taskmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFCBF31B23D721CC0087D786 /* Tasktastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasktastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCBF31E23D721CC0087D786 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EFCBF31F23D721CC0087D786 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EFCBF32123D721CC0087D786 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		EFCBF31C23D721CC0087D786 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EFCBF31B23D721CC0087D786 /* Taskmaster.app */,
+				EFCBF31B23D721CC0087D786 /* Tasktastic.app */,
 				EFCBF33623D721D30087D786 /* TodoListTests.xctest */,
 				EFCBF34123D721D30087D786 /* TodoListUITests.xctest */,
 			);
@@ -164,7 +164,7 @@
 			);
 			name = TodoList;
 			productName = TodoList;
-			productReference = EFCBF31B23D721CC0087D786 /* Taskmaster.app */;
+			productReference = EFCBF31B23D721CC0087D786 /* Tasktastic.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EFCBF33523D721D30087D786 /* TodoListTests */ = {
@@ -458,7 +458,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fhs.TodoList;
-				PRODUCT_NAME = Taskmaster;
+				PRODUCT_NAME = Tasktastic;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -474,7 +474,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fhs.TodoList;
-				PRODUCT_NAME = Taskmaster;
+				PRODUCT_NAME = Tasktastic;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
