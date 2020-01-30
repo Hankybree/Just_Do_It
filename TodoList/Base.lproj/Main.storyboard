@@ -85,7 +85,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="HeaderColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Se8-tB-TCJ" secondAttribute="trailing" constant="20" symbolic="YES" id="3NY-pf-dcH"/>
                                     <constraint firstAttribute="bottom" secondItem="Se8-tB-TCJ" secondAttribute="bottom" constant="30" id="TWg-F4-zGn"/>
@@ -103,7 +103,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="HeaderColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="JqD-Ss-oPv" secondAttribute="bottom" constant="8" id="6bY-db-snP"/>
                                     <constraint firstItem="JqD-Ss-oPv" firstAttribute="centerX" secondItem="j6m-eV-oNl" secondAttribute="centerX" id="Jdt-2C-rE8"/>
@@ -141,6 +141,9 @@
         <image name="trash" catalog="system" width="60" height="64"/>
         <namedColor name="CheckmarkColor">
             <color red="0.086999997496604919" green="0.55900001525878906" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HeaderColor">
+            <color red="0.65098039215686276" green="0.59215686274509804" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
