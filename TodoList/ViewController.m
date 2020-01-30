@@ -17,7 +17,6 @@
 @implementation ViewController
 
 NSMutableArray *taskList;
-//NSMutableArray *dictList;
 
 NSUserDefaults *settings;
 
